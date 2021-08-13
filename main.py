@@ -5,6 +5,7 @@ main.py - example of a Python 3 application
 """
 import argparse
 import sys
+from person import Person
 
 
 def parse_sys_args(sys_args: list) -> argparse:
@@ -40,7 +41,10 @@ def main(sys_args: list) -> int:
             print('A --name argument must be provided to this program')
             return response
 
-        print_hi(arguments.name)
+        person1 = Person(arguments.name)
+
+        print_hi(person1.name)
+
         return 0
     except ValueError as e:
         print(f'Unable to continue: {e}')
