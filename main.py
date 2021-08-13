@@ -10,7 +10,7 @@ from person import Person
 
 def parse_sys_args(sys_args: list) -> argparse:
     """
-    Use argparse to procss any commandline arguments that were
+    Use argparse to process any commandline arguments that were
     passed into the python file.
     Also enable '-h' argument for users that prefer a cli feel
     :param sys_args: list of command line arguments

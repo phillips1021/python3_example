@@ -8,4 +8,3 @@ class Person:
         :param name: Person's name
         """
         self.name = name
-
