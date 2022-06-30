@@ -8,8 +8,6 @@ import sys
 import time
 import multiprocessing
 from pathlib import Path
-from random import randint
-
 import boto3
 
 
@@ -45,14 +43,17 @@ def main(sys_args: list) -> int:
     try:
         arguments = parse_sys_args(sys_args)
         if not arguments.name:
-            print('A --name argument must be provided to this program which is the name of the user running this program')
+            print('A --name argument must be provided to this program which is the name of the user running '
+                  'this program')
             return response
         if not arguments.file:
-            print('A --file argument must be provided to this program which is the complete path to the file to upload and try to download')
+            print('A --file argument must be provided to this program which is the complete path to the file to '
+                  'upload and try to download')
             return response
 
         print_hi(arguments.name)
-        print(f'Going to upload {arguments.file} in one thread and try to download it in another thread while file is being uploaded.')
+        print(f'Going to upload {arguments.file} in one thread and try to download it in another thread while '
+              f'file is being uploaded.')
 
         p_upload = multiprocessing.Process(target=upload_boto3, args=(arguments.file,))
         p_upload.start()
@@ -101,5 +102,3 @@ def download_boto3(download_file):
 
 if __name__ == '__main__':
     sys.exit(main(sys.argv[1:]))
-
-
